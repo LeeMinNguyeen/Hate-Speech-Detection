@@ -1,0 +1,1785 @@
+{
+  "name": "Dynamics Survey",
+  "nodes": [
+    {
+      "parameters": {
+        "action": "generate"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        -2180,
+        -225
+      ],
+      "id": "f1d15ce6-4e12-4f9a-84cd-dc8fbec74e25",
+      "name": "UUID"
+    },
+    {
+      "parameters": {
+        "formTitle": "Hate Speech Sarcasm Detection",
+        "formDescription": "Mô tả",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Cho chúng mình biết tên của bạn nhé",
+              "placeholder": "Tên",
+              "requiredField": true
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {
+          "appendAttribution": true,
+          "buttonLabel": "Bắt đầu",
+          "path": "Sarcasm",
+          "ignoreBots": true,
+          "useWorkflowTimezone": true
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -2400,
+        -225
+      ],
+      "id": "2260f05f-755d-4374-9a3a-eb7dcbe93311",
+      "name": "Start Interview",
+      "webhookId": "fe89f90c-8f5e-4cd0-9c1d-24e724126d53"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f61a2c4-880c-4830-9802-2f51559dabe6",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "90f2f397-052f-411a-a259-52dcad2b2795",
+              "name": "type",
+              "value": "start_interview",
+              "type": "string"
+            },
+            {
+              "id": "d72c3298-0bc2-443a-ba1e-7b8b1007c389",
+              "name": "question",
+              "value": "Bạn là:",
+              "type": "string"
+            },
+            {
+              "id": "da314fe8-6230-4f3c-987d-6bfe36eaeb08",
+              "name": "question_no",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "4ff6fe63-b054-48d9-b1a2-311afca8fb1d",
+              "name": "questions",
+              "value": "={{ $json.questions }}",
+              "type": "string"
+            },
+            {
+              "id": "695d9554-e52c-4550-95c7-64692d210cc0",
+              "name": "answer",
+              "value": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1780,
+        -325
+      ],
+      "id": "6ec4d66b-ea30-4e17-ac94-869a698691d2",
+      "name": "Generate Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.answer }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are researching and interviewing a user on the topic of \"Sarcasm Detection\". The purpose of this survey is for you to have the data to answer these hypothesis:\n\n- Perception about sarcasm\n- General Information about the users\n\nH1a: Social media is full of sarcastic statements.\nH1b: Social media is full of purely hateful statements.\nH1c: Social media is full of meaningless nonsense.\nH2: Sarcasm can unintentionally legitimize or rationalize hate speech under the guise of humor.\nH6: People who use sarcasm on social media frequently also use it in everyday communication.\nH8: Sarcasm is often used as a tool to demonstrate intelligence/wisdom in the Gen Z community.\nH10a: Gen Z understands sarcasm better when the content is linked to a social context or a trending meme.\nH10b: Gen Z’s ability to understand sarcasm depends on personal experience, language, and exposure.\nH14: Anonymous accounts are 3 times more likely to use malicious sarcasm than official accounts.\nH19: Sarcasm in close-knit community groups is often internal and difficult to identify to outsiders.\n- Other hypotheses are omitted\n\nThe user belong to the {{ $json.answer }}. Here is the question list related to them: {{ $json.questions }}\n\nDuring the survey, make sure\n- Always communicate in Vietnamese. You are not talking directly to the user so no need to add emoji and conversational talk.\n- For each question, if any, provide a choice for the user to choose. The answer is provided in question list above.\n- Only ask one question at a time. Analyze the previous question and ask a new question each time. If there is an opportunity to dig deeper into the previous answer that can help answer the hypotheses, do so but limit it to 1 follow-up question. You can do open-ended question for this part.\n- Continue asking questions until you have enough data to sufficently answer aforementioned hypothesis. When the user requests to stop the interview and no questions are asked, \"question\" will be an empty string.\n- Use a friendly and polite tone when asking questions.\n- If the user's answer is not relevant to the question, re-ask the question or move on to another question.\n- If the user's answer is outside the scope of the interview, skip the answer and ask if the user wants to stop the interview.\n- Start by asking any question in the questions list.\n- Try your best to keep the questions to the questions list, avoid making up your own question.\n\nOutput in the following format:\n- Question: \n- Answer option 1:\n- Answer option 2:\n- Answer option ...:\n- If it a open-ended questions, output \"Open-ended question\"\n- Do not to put any hypothesis in your output in order to not make them public"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        2220,
+        -220
+      ],
+      "id": "4374d236-7e98-4289-8f1d-e4dca5de4c0f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "qwen-qwq-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        2248,
+        -5
+      ],
+      "id": "aaa6835f-2263-4c66-bd15-5f0ec0957618",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "rwgN1L5IBBx98Xwe",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('UUID').first().json.data }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2368,
+        -5
+      ],
+      "id": "9a3ef836-8dfc-4b06-a558-ee671034bf5d",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e7163e2-b9b7-4ab7-9f97-e1ee61a01d43",
+              "name": "output",
+              "value": "={{ \n  $json.output\n  .replace(\"```json\",\"\")\n  .replace(\"```\",\"\")\n  .parseJson()\n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2972,
+        -350
+      ],
+      "id": "a948bd3c-87a8-4b53-b86d-7655924f7881",
+      "name": "Edit Fields",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "670b4a95-5e58-4ce0-be3f-3122ee0abc3d",
+              "leftValue": "={{ $json.output.stop_interview }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2fb3cde9-e31f-448d-86c3-fa38fdc610d9",
+              "leftValue": "={{ $('Add Questions List').item.json.question_no }}",
+              "rightValue": 10,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3192,
+        -350
+      ],
+      "id": "b2bbb059-e172-4c19-8005-4193ae5b488c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "=answer",
+              "placeholder": "Câu trả lời",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "={{ $json.output.ask.question }}",
+          "formDescription": "=Hãy trả lời:{{ \"\\n\" }}\n{{ $json.output.ask.answers.toJsonString().replace(\"{\",\"\").replace(\"}\",\"\").replaceAll(',\"','\\n\"').replaceAll(':',\": \").replaceAll('\"',\"\") }}\n{{ \"\\n\" }}Bạn có thể dừng phỏng vấn bằng: \"Ngưng phỏng vấn\"",
+          "buttonLabel": "Tiếp tục"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        3412,
+        -200
+      ],
+      "id": "87f21599-a9ed-497c-afcd-ba8c58c6021a",
+      "name": "Form",
+      "webhookId": "188ea821-eb3d-459b-a50a-9561c1969dbd"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a353f8dc-dff5-41cb-ba44-d4d69d5091f9",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "b6d2a5c1-cccf-40fc-88c9-4c190a803931",
+              "name": "type",
+              "value": "next_question",
+              "type": "string"
+            },
+            {
+              "id": "c0dc8c5b-6f0d-470e-b99d-b7fb72274f88",
+              "name": "question",
+              "value": "={{ $('If').item.json.output.ask.question }}",
+              "type": "string"
+            },
+            {
+              "id": "578909f0-2432-49d4-880c-4f52cd6eca1c",
+              "name": "answer",
+              "value": "={{ $json.answer }}",
+              "type": "string"
+            },
+            {
+              "id": "2f288bcc-766e-4acf-8b47-4520a46c32d1",
+              "name": "output.ask.answers",
+              "value": "={{ $('If').item.json.output.ask.answers }}",
+              "type": "object"
+            },
+            {
+              "id": "184abd13-c8c5-4616-9021-fc1da54888d6",
+              "name": "question_no",
+              "value": "=1",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3632,
+        -200
+      ],
+      "id": "9151ad18-1a9c-4a36-ba17-68e0e3d23b2a",
+      "name": "Update data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "55791902-4f63-4b11-9ede-c9bcf9e874e2",
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "6ab973fe-e8cc-47a5-95f0-a3d28a6c1d9f",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "096de050-f163-478d-8653-327913ea1ddf",
+              "name": "question",
+              "value": "={{ $json.question }}",
+              "type": "string"
+            },
+            {
+              "id": "6f930832-9a85-4e49-ac19-a6afa1c12dbd",
+              "name": "answer",
+              "value": "={{ $json.answer }}",
+              "type": "string"
+            },
+            {
+              "id": "af15adcf-b077-49c0-a6f2-353deb092db3",
+              "name": "question_no",
+              "value": "={{ $json.question_no }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4228,
+        -75
+      ],
+      "id": "e11e099f-baf5-4b57-84ac-831c012a9c81",
+      "name": "Prepare next question"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a353f8dc-dff5-41cb-ba44-d4d69d5091f9",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "b6d2a5c1-cccf-40fc-88c9-4c190a803931",
+              "name": "type",
+              "value": "end_interview",
+              "type": "string"
+            },
+            {
+              "id": "c0dc8c5b-6f0d-470e-b99d-b7fb72274f88",
+              "name": "question",
+              "value": "=End",
+              "type": "string"
+            },
+            {
+              "id": "578909f0-2432-49d4-880c-4f52cd6eca1c",
+              "name": "answer",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "184abd13-c8c5-4616-9021-fc1da54888d6",
+              "name": "question_no",
+              "value": "={{ $('Prepare next question').item.json.question_no }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3412,
+        -500
+      ],
+      "id": "9cba3e01-4573-43fb-9b45-b906c908d54e",
+      "name": "Update data2"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('UUID').first().json.data }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        3940,
+        -380
+      ],
+      "id": "599b6df5-4414-44f7-9f4a-c94868b48789",
+      "name": "Simple Memory2"
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3852,
+        -600
+      ],
+      "id": "073ac586-4aa7-4f1f-8cbc-01f18bbcc55a",
+      "name": "Clear Memory"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI",
+          "mode": "list",
+          "cachedResultName": "Dynamic interview",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "session_id": "={{ $('UUID').first().json.data }}",
+            "timestamp": "={{ $json.timestamp }}",
+            "type": "={{ $json.type }}",
+            "question": "={{ $json.question }}",
+            "answer": "={{ $json.answer }}",
+            "answer options": "={{ $json.output.ask.answers }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "question",
+              "displayName": "question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "answer options",
+              "displayName": "answer options",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "answer",
+              "displayName": "answer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "session_id",
+              "displayName": "session_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "useAppend": true
+        }
+      },
+      "id": "931bd69c-76d0-43c1-81f9-ddda47eb4abf",
+      "name": "Save to Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        4900,
+        -500
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "u8vntgdFvnvO9EeB",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "session",
+        "options": {}
+      },
+      "id": "71e28d33-7898-4aa1-9862-36d8e2168ec3",
+      "name": "Session to List",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        4448,
+        -500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{\n{\n  ...$json.session.parseJson(),\n  session_id: `session_${$('UUID').first().json.data}`,\n  name: $('Start Interview').first().json['What is your name?'],\n}\n}}",
+        "options": {}
+      },
+      "id": "74388786-a732-49f7-8266-8df765ae35e5",
+      "name": "Messages To JSON",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        4660,
+        -500
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}\n\nUsing the above output, format into the following json schema because we require processing before replying to the user.\n\n```json\n{\n\"stop_interview\": { \"type\": \"boolean\" },\n\"ask\": { \n    \"question\": \"string\",\n    \"answers\": {\n      \"1\": <Option 1>,\n      \"2\": <Option 2>,\n      ...\n    }\n  }\n}\n```\n\n- Only output json objects and do not prefix or suffix the message with irrelevant text.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        2596,
+        -350
+      ],
+      "id": "3c5ffb75-cd74-4e80-8df3-84b280ea5f1e",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "gemma2-9b-it",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        -160
+      ],
+      "id": "97197f97-b451-4c1e-92a7-7791914a1009",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "rwgN1L5IBBx98Xwe",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -860,
+        -225
+      ],
+      "id": "d6428b12-9608-4761-8567-29ce3d72d334",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9e9df3de-e4e1-43c8-b48f-cbd335798ad5",
+              "name": "question_number",
+              "value": "={{ $itemIndex +1 }} ",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1080,
+        -225
+      ],
+      "id": "19d13c97-fe20-4374-894d-1774ef96bdff",
+      "name": "question_num1"
+    },
+    {
+      "parameters": {
+        "type": "random"
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        -1300,
+        -225
+      ],
+      "id": "1ce8384f-fb07-4584-9a00-0f2ac7768fb7",
+      "name": "Sort"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "questions",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1520,
+        -225
+      ],
+      "id": "34b5de5e-336a-4867-a389-01d873dc6673",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI",
+          "mode": "list",
+          "cachedResultName": "Dynamic interview",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 609849582,
+          "mode": "list",
+          "cachedResultName": "Sheet3",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1f1A8o0DaVRCJA6bRpBn1utgvdPfcvm6hb-aIXM8vGWI/edit#gid=609849582"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "session_id": "={{ $('Redis').item.json.data }}",
+            "timestamp": "={{$now.toISO()}}",
+            "question": "={{ $('Split Out').item.json.question }}",
+            "answer": "={{ $json['Câu trả lời:'] }}"
+          },
+          "matchingColumns": [
+            "session_id"
+          ],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "question",
+              "displayName": "question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "answer",
+              "displayName": "answer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "session_id",
+              "displayName": "session_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -420,
+        -300
+      ],
+      "id": "f5f9a9f2-e353-429d-bbde-c7bdb55b2028",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "u8vntgdFvnvO9EeB",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "=Câu trả lời:",
+              "placeholder": "=",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "={{ $('Split Out').item.json.question }}",
+          "formDescription": "=Chọn các lựa chọn sau: \n1: Có\n2: Không\n3: Tôi không biết",
+          "buttonLabel": "Tiếp tục"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -300
+      ],
+      "id": "846a8836-32bf-41d6-bc9b-a55a7fab9115",
+      "name": "Ask Question",
+      "webhookId": "781ed0b7-3f32-48b9-be4b-9f58e0d089b8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "91b4d7e0-629b-450a-a119-c7aa40207407",
+              "leftValue": "={{ $('question_num1').item.json.question_number }}",
+              "rightValue": 9,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        680,
+        -225
+      ],
+      "id": "7ecb712d-86cc-4721-b229-e096c0d85999",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"questions\": [\n    {\n      \"question\": \"Theo bạn, câu sau đây có thể hiện thái độ thù ghét/ mỉa mai trong một tình huống bất kỳ không? \\\"Giúp xứ người, đào lửa xứ mình\\\"\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"“Thua Tôn Bằng” có thể được dùng để mỉa mai những người đàn ông có tính gia trưởng cực đoan không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"“Không cần nói nữa Gobi, đủ lắm rồi” là câu đồng nghĩa với “im lặng”?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bạn thấy cái này có ‘’đủ quao’’ chưa?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Nếu được chọn 1 người để hẹn hò, bạn có muốn hẹn hò với Jack không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Khi nhìn lên bầu trời bầu trời, bạn có thấy 1 vì tinh tú không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bạn có thấy bạn quá ác không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bạn đã xem qua bộ phim ‘’Vườn sao kê’’ lần nào chưa?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bé Ba có phải là hình mẫu phụ nữ hiện đại không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Khi nhìn lên bầu trời, bạn có thấy một vì tinh tú không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Nên cho trẻ em xem Skibidi Toilet để phát triển tư duy sáng tạo?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Bé Ba + Baby Three = Tuesday có phải là phương trình hạnh phúc?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Con gái hư có đáng bị gọi là 'Bé Ba' không?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    },\n    {\n      \"question\": \"Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?\",\n      \"options\": {\n        \"1\": \"Có\",\n        \"2\": \"Không\",\n        \"3\": \"Tôi không biết\"\n      }\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1740,
+        -225
+      ],
+      "id": "86b40359-1188-4039-a1c6-9060b2c99bc7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "session",
+        "key": "=session_{{ $('UUID').first().json.data }}",
+        "keyType": "list",
+        "options": {}
+      },
+      "id": "6c47add0-3280-4436-ba68-4409ce675cd2",
+      "name": "Get Session",
+      "type": "n8n-nodes-base.redis",
+      "position": [
+        4228,
+        -500
+      ],
+      "executeOnce": true,
+      "typeVersion": 1,
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=session_{{ $('UUID').first().json.data }}",
+        "messageData": "={{ $json.toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3930,
+        -200
+      ],
+      "id": "4dd3f146-faca-408a-8f22-8b9ea20a0540",
+      "name": "Update Session",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=session_{{ $('UUID').first().json.data }}",
+        "messageData": "={{ $json.removeField(\"questions\").toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        -225
+      ],
+      "id": "375ebaa8-83dd-4663-9e81-304f96fea538",
+      "name": "Update Session1",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=session_{{ $('UUID').item.json.data }}",
+        "value": "={{[]}}",
+        "keyType": "list"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1960,
+        -225
+      ],
+      "id": "fd2f85e4-db4f-4b30-a20e-796145bb1c6b",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=session_{{ $('UUID').first().json.data }}",
+        "messageData": "={{ $json.toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        460,
+        -300
+      ],
+      "id": "ce95e76c-1f16-4dcd-b0f3-49c6a5721f4a",
+      "name": "Update Session2",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "472f0b7c-c58d-420e-b018-0647b9277275",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "45c1bb50-7b33-4cd0-a192-a67db69e61b2",
+              "name": "question",
+              "value": "={{ $('Sort').item.json.question }}",
+              "type": "string"
+            },
+            {
+              "id": "d707ec55-25f0-4146-a97b-e2bdd05c8558",
+              "name": "Câu trả lời:",
+              "value": "={{ $('Google Sheets').item.json.answer }}",
+              "type": "string"
+            },
+            {
+              "id": "88b5cea8-6216-4aca-9832-e6161ec735e1",
+              "name": "type",
+              "value": "Standard_question",
+              "type": "string"
+            },
+            {
+              "id": "86d1c319-fd54-41a4-b3f4-662145a20cfc",
+              "name": "output.ask.answers",
+              "value": "1: Có 2: Không 3: Tôi không biết",
+              "type": "string"
+            },
+            {
+              "id": "d3c3c0f7-ffcd-4a35-b922-1044bac1bf06",
+              "name": "score",
+              "value": "={{ $json['score'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        -300
+      ],
+      "id": "3fcdcdb8-1395-4340-8c61-c430cfd8eec4",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5bc0a817-48e7-4297-b58f-7aa778b59bae",
+              "leftValue": "={{ $json.answer }}",
+              "rightValue": "1",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "118b26f5-9f34-44cf-9fc6-2be2ccb09cb7",
+              "leftValue": "={{ $json.answer }}",
+              "rightValue": "2",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -200,
+        -300
+      ],
+      "id": "f00c8d12-3442-413d-9f95-603f48661815",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "08648b49-026a-4fe8-b0e0-b1128c515439",
+              "name": "score",
+              "value": "=1",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        -400
+      ],
+      "id": "cb208ff8-5f94-4d1f-8db5-077711a4c8b5",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d2013bc5-a0d9-4a13-9078-eeac1c91c312",
+              "name": "score",
+              "value": 0,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        -200
+      ],
+      "id": "78fd6556-02be-4b5d-8673-ed28bbaa8e45",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "session",
+        "key": "=session_{{ $('UUID').first().json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        900,
+        -225
+      ],
+      "id": "69defd8b-5bc8-4b73-8caf-f7e07f2bcb81",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n    \"questions\": [\n    {\n        \"question\": \"Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z\",\n        \"answer\": {\n            \"1\": \"Không đồng ý\",\n            \"2\": \"Trung lập\",\n            \"3\": \"Đồng ý\"\n        },\n        \"hypothesis\": [\"H4\"]\n    },\n    {\n        \"question\": \"Khi sử dụng tài khoản ẩn danh (không có thông tin cá nhân thật), bạn có xu hướng sử dụng sarcasm tiêu cực hơn.\",\n        \"answer\": {\n            \"1\": \"Không đồng ý\",\n            \"2\": \"Trung lập\",\n            \"3\": \"Đồng ý\"\n        },\n        \"hypothesis\": [\"H7\"]\n    },\n    {\n        \"question\": \"Bạn thường xuyên tiếp xúc với các nội dung mỉa mai/châm biếm từ nguồn nào?\",\n        \"answer\": {\n            \"1\": \"Các trang mạng xã hội (Tiktok, Facebook, Instagram,...)\",\n            \"2\": \"Phim ảnh\",\n            \"3\": \"Báo/ tạp chí\",\n            \"4\": \"Bạn bè/ gia đình\"\n        },\n        \"hypothesis\": [\"H5\", \"H6\"]\n    },\n    {\n        \"question\": \"Bạn dễ dàng nhận ra sarcasm hơn trong những trường hợp nào?\",\n        \"answer\": {\n            \"1\": \"Liên quan đến meme đang trending từ sự kiện xã hội hiện tại\",\n            \"2\": \"Sử dụng ngôn ngữ Gen Z quen thuộc\",\n            \"3\": \"Không liên quan đến yếu tố cụ thể nào\"\n        },\n        \"hypothesis\": [\"H5\", \"H6\"]\n    },\n    {\n        \"question\": \"Bạn sử dụng lời nói mỉa mai/châm biếm trên mạng xã hội với tần suất như thế nào?\",\n        \"answer\": {\n            \"1\": \"Không bao giờ\",\n            \"2\": \"Thỉnh thoảng\",\n            \"3\": \"Rất thường xuyên\"\n        },\n        \"hypothesis\": [\"H3\"]\n    },\n    {\n        \"question\": \"Bạn sử dụng lời nói mỉa mai/châm biếm trong giao tiếp hằng ngày với tần suất như thế nào?\",\n        \"answer\": {\n            \"1\": \"Không bao giờ\",\n            \"2\": \"Thỉnh thoảng\",\n            \"3\": \"Rất thường xuyên\"\n        },\n        \"hypothesis\": [\"H3\"]\n    },\n    {\n        \"question\": \"Trong bối cảnh một nội dung video gây tranh cãi về người có ảnh hưởng trên mạng xã hội liên quan đến hành vi cá nhân không phù hợp với chuẩn mực đạo đức, xuất hiện bình luận như sau: 'Có người cứu J97 rồi sao :))'\",\n        \"answer\": {\n            \"1\": \"Tiêu cực (thể hiện thái độ phản đối, chỉ trích, mỉa mai hoặc châm biếm tiêu cực)\",\n            \"2\": \"Trung tính (không biểu lộ rõ thái độ tích cực hay tiêu cực)\",\n            \"3\": \"Tích cực/Hài hước (mang tính hài hước, gây cười hoặc thể hiện thái độ tích cực)\"\n        },\n        \"hypothesis\": [\"Hiểu biết\", \"H5\"]\n    },\n    {\n        \"question\": \"Theo bạn, từ ngữ sau đây thể hiện sắc thái như thế nào? 'Bố mẹ ra đường chắc tự hào về con lắm'\",\n        \"answer\": {\n            \"1\": \"Tiêu cực (thể hiện thái độ phản đối, chỉ trích, mỉa mai hoặc châm biếm tiêu cực)\",\n            \"2\": \"Trung tính (không biểu lộ rõ thái độ tích cực hay tiêu cực)\",\n            \"3\": \"Tích cực/Hài hước (mang tính hài hước, gây cười hoặc thể hiện thái độ tích cực)\"\n        },\n        \"hypothesis\": [\"Hiểu biết\", \"H5\"]\n    },\n    {\n        \"question\": \"Theo bạn, cụm từ 'Khó chịu vô cùng' được cho là có sắc thái chỉ trích/ mỉa mai trong trường hợp nào?\",\n        \"answer\": {\n            \"1\": \"Khi đây là bình luận dưới video về hành vi vứt rác bừa bãi ở khu vực công cộng\",\n            \"2\": \"Khi đây là bình luận dưới video chia sẻ khoảnh khắc dễ thương của một cặp tình nhân\",\n            \"3\": \"Khi đây là bình luận dưới video về thông tin dự báo thời tiết nắng nóng tại Thành phố HCM\"\n        },\n        \"hypothesis\": [\"Hiểu biết\"]\n    },\n    {\n        \"question\": \"Khi bạn lướt mạng xã hội (Facebook, TikTok, v.v), bạn thường gặp nhiều nhất loại nội dung nào sau đây?\",\n        \"answer\": {\n            \"1\": \"Những câu nói mang tính đùa cợt, đá xéo hoặc mỉa mai người khác\",\n            \"2\": \"Những câu chửi thẳng, xúc phạm hoặc thù ghét công khai\",\n            \"3\": \"Những câu nói vô nghĩa, chỉ để gây cười mà không có nội dung sâu xa\"\n        },\n        \"hypothesis\": [\"H1\"]\n    },\n    {\n        \"question\": \"Các câu nói mỉa mai trong những hội nhóm riêng (VD: fanclub, group bạn bè) sẽ khó hiểu hơn đối với người ngoài nhóm.\",\n        \"answer\": {\n            \"1\": \"Không đồng ý\",\n            \"2\": \"Trung lập\",\n            \"3\": \"Đồng ý\"\n        },\n        \"hypothesis\": [\"H8\"]\n    },\n    {\n        \"question\": \"Theo bạn, những câu mỉa mai (sarcasm) trên mạng xã hội có thể khiến người khác:\",\n        \"answer\": {\n            \"1\": \"Cảm thấy bị xúc phạm nhưng khó chỉ trích lại vì nó nghe có vẻ hài hước\",\n            \"2\": \"Dễ hiểu nhầm là nói đùa dù thực chất là công kích\",\n            \"3\": \"Giải trí và nhẹ nhàng hóa vấn đề, không nghiêm trọng\",\n            \"4\": \"Không để lại ấn tượng gì, dễ lướt qua\"\n        },\n        \"hypothesis\": [\"H2\"]\n    },\n    {\n        \"question\": \"Theo bạn, yếu tố nào ảnh hưởng nhiều nhất đến khả năng hiểu sarcasm (châm biếm) của Gen Z?\",\n        \"answer\": {\n            \"1\": \"Câu hỏi mở\"\n        },\n        \"hypothesis\": [\"H6\"]\n    }\n]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1560,
+        -325
+      ],
+      "id": "5142055b-3b6b-443b-81fc-f5e888b5db09",
+      "name": "Add Questions List"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.TotalScore }}",
+                    "rightValue": 5,
+                    "operator": {
+                      "type": "number",
+                      "operation": "gte"
+                    },
+                    "id": "ed08b2ab-e52e-4e46-a10c-416d1047c640"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b8370c48-1e1d-4e9c-b04d-9eff1e367404",
+                    "leftValue": "={{ $json.TotalScore }}",
+                    "rightValue": 5,
+                    "operator": {
+                      "type": "number",
+                      "operation": "lt"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1340,
+        -225
+      ],
+      "id": "80e27f76-b67c-40a4-9deb-37669603b67b",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n    \"questions\": [\n        {\n            \"question\": \"Khi bạn lướt mạng xã hội (Facebook, TikTok, v.v), bạn thường gặp nhiều nhất loại nội dung nào sau đây?\",\n            \"answer\": {\n                \"1\": \"Những câu nói mang tính đùa cợt, đá xéo hoặc mỉa mai người khác\",\n                \"2\": \"Những câu chửi thẳng, xúc phạm hoặc thù ghét công khai\",\n                \"3\": \"Những câu nói vô nghĩa, không có nội dung sâu xa\",\n            },\n            \"hypothesis\": [\"H1\"]\n        },\n        {\n            \"question\": \"Theo bạn, những câu mỉa mai (sarcasm) trên mạng xã hội có thể khiến người khác:\",\n            \"answer\": {\n                \"1\": \"Cảm thấy bị xúc phạm nhưng khó chỉ trích lại vì nó nghe có vẻ hài hước\",\n                \"2\": \"Dễ hiểu nhầm là nói đùa dù thực chất là công kích\",\n                \"3\": \"Giải trí và nhẹ nhàng hóa vấn đề, không nghiêm trọng\",\n                \"4\": \"Không để lại ấn tượng gì, dễ lướt qua\"\n            },\n            \"hypothesis\": [\"H2\"]\n        },\n        {\n            \"question\": \"Bạn có thường sử dụng các câu nói mỉa mai, đá xéo (sarcasm) khi đăng bài hoặc bình luận trên mạng xã hội không?\",\n            \"answer\": {\n                \"1\": \"Có, thường xuyên\",\n                \"2\": \"Thỉnh thoảng\",\n                \"3\": \"Hiếm khi\",\n                \"4\": \"Không bao giờ\"\n            },\n            \"hypothesis\": [\"H6\"]\n        },\n        {\n            \"question\": \"Bạn nghĩ vì sao một số người thích dùng sarcasm trên mạng xã hội?\",\n            \"answer\": {\n                \"1\": \"Vì nó nghe “thâm thúy” và thể hiện sự thông minh\",\n                \"2\": \"Để né tránh bị phản ứng trực tiếp\",\n                \"3\": \"Vì thấy người khác cũng làm vậy\",\n                \"4\": \"Vì muốn gây cười hoặc tạo tương tác\",\n                \"5\": \"Không rõ lý do\"\n            },\n            \"hypothesis\": [\"H8\"]\n        },\n        {\n            \"question\": \"Bạn có dễ dàng hiểu các câu nói mỉa mai khi chúng gắn với xu hướng mạng xã hội, meme hoặc sự kiện nổi bật không?\",\n            \"answer\": {\n                \"1\": \"Dễ hiểu hơn nhiều\",\n                \"2\": \"Cũng như bình thường\",\n                \"3\": \"Khó hiểu hơn\",\n                \"4\": \"Không rõ\"\n            },\n            \"hypothesis\": [\"H10a\"]\n        },\n        {\n            \"question\": \"Theo bạn, điều gì khiến một người dễ hiểu sarcasm hơn?\",\n            \"answer\": {\n                \"1\": \"Xem nhiều nội dung mạng xã hội\",\n                \"2\": \"Có vốn từ ngữ và hiểu cách chơi chữ\",\n                \"3\": \"Từng trải với nhiều tình huống xã hội\",\n                \"4\": \"Là người hài hước\",\n                \"5\": \"Không biết nữa\"\n            },\n            \"hypothesis\": [\"H10b\"]\n        },\n        {\n            \"question\": \"Bạn nghĩ những tài khoản ẩn danh/không có ảnh thật trên mạng có xu hướng sử dụng các bình luận mỉa mai/độc hại:\",\n            \"answer\": {\n                \"1\": \"Thường xuyên hơn tài khoản thật\",\n                \"2\": \"Ít hơn tài khoản thật\",\n                \"3\": \"Không khác biệt nhiều\",\n                \"4\": \"Không rõ\"\n            },\n            \"hypothesis\": [\"H14\"]\n        },\n        {\n            \"question\": \"Bạn có từng đọc một bình luận hoặc câu nói mỉa mai mà người khác hiểu ngay, còn bạn thì không hiểu ý hoặc hiểu sai ý không?\",\n            \"answer\": {\n                \"1\": \"Có, khá thường xuyên\",\n                \"2\": \"Có, nhưng ít\",\n                \"3\": \"Gần như không\",\n                \"4\": \"Không nhớ\"\n            },\n            \"hypothesis\": [\"H19\"]\n        },\n        {\n            \"question\": \"Bạn có nghĩ rằng các câu nói mỉa mai trong những hội nhóm riêng (VD: fanclub, group bạn bè) sẽ khó hiểu hơn đối với người ngoài nhóm?\",\n            \"answer\": {\n                \"1\": \"Có, vì thường có “code” hoặc ngôn ngữ riêng\",\n                \"2\": \"Không, ai cũng có thể hiểu nếu theo dõi\",\n                \"3\": \"Tùy trường hợp\",\n                \"4\": \"Không rõ\"\n            },\n            \"hypothesis\": [\"H19\"]\n        },\n        {\n            \"question\": \"Một streamer đình đám mở livestream giải thích về loạt tin đồn, bốc phốt và những lời bôi nhọ nhắm vào mình thời gian qua. Càng thanh minh, anh ta lại vô tình thốt ra những câu nói gây hại cho chính bản thân. Và thế là, cộng đồng mạng nhanh chóng 'tặng' anh loạt bình luận 'Đồng Jack nay xuống giá rồi ha'.\",\n            \"answer\": {\n                \"1\": \"Tiêu cực (thể hiện thái độ phản đối, chỉ trích, mỉa mai hoặc châm biếm tiêu cực)\",\n                \"2\": \"Trung tính (không biểu lộ rõ thái độ tích cực hay tiêu cực)\",\n                \"3\": \"Tích cực/Hài hước (mang tính hài hước, gây cười hoặc thể hiện thái độ tích cực)\"\n            },\n            \"hypothesis\": [\"Hiểu biết\"]\n        },\n        {\n            \"question\": \"Theo bạn cụm từ ''Xịt keo'' thể hiện sắc thái như nào?\",\n            \"answer\": {\n                \"1\": \"Tiêu cực (thể hiện thái độ phản đối, chỉ trích, mỉa mai hoặc châm biếm tiêu cực)\",\n                \"2\": \"Trung tính (không biểu lộ rõ thái độ tích cực hay tiêu cực)\",\n                \"3\": \"Tích cực/Hài hước (mang tính hài hước, gây cười hoặc thể hiện thái độ tích cực)\"\n            },\n            \"hypothesis\": [\"Hiểu biết\"]\n        },\n        {\n            \"question\": \"Trên các trang thông tin chính thức của các báo chính thống đăng tải bài viết về vụ việc công ty kẹo K có hành vi kinh doanh thiếu minh bạch, ảnh hưởng đến quyền lợi người tiêu dùng. Đáng chú ý, công ty này từng được quảng bá rộng rãi bởi bà HDM, ông QL và đặc biệt có sự liên quan đến hoa hậu T. Sau khi thông tin được đăng tải, hoa hậu T nhanh chóng lên tiếng phủ nhận trách nhiệm, khẳng định mình chỉ đóng vai trò KOL/KOC chứ không tham gia điều hành. Tuy nhiên, nhiều cư dân mạng tỏ ra hoài nghi, thể hiện qua hàng loạt bình luận như: 'Đấy, tôi nói rồi, nhìn mặt là biết ngay, chỉ là trước đây không nói ra thôi'.\",\n            \"answer\": {\n                \"1\": \"Tiêu cực (thể hiện thái độ phản đối, chỉ trích, mỉa mai hoặc châm biếm tiêu cực)\",\n                \"2\": \"Trung tính (không biểu lộ rõ thái độ tích cực hay tiêu cực)\",\n                \"3\": \"Tích cực/Hài hước (mang tính hài hước, gây cười hoặc thể hiện thái độ tích cực)\"\n            },\n            \"hypothesis\": [\"Hiểu biết\"]\n        }\n    ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1560,
+        -125
+      ],
+      "id": "1a59c74c-9a0e-4032-a856-7ebdf8e65410",
+      "name": "Add Questions List1"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\nscore_sum = 0\n\ninput = _input.all()\n\nfor item in input[0]['json']['session']:\n  json_dict = json.loads(item)\n  score_sum += int(json_dict[\"score\"])\n  \nreturn {\"TotalScore\": score_sum}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        -225
+      ],
+      "id": "91dd2e1e-19b4-4828-83f6-3e64a514c3ff",
+      "name": "Code",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f61a2c4-880c-4830-9802-2f51559dabe6",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "90f2f397-052f-411a-a259-52dcad2b2795",
+              "name": "type",
+              "value": "start_interview",
+              "type": "string"
+            },
+            {
+              "id": "d72c3298-0bc2-443a-ba1e-7b8b1007c389",
+              "name": "question",
+              "value": "Bạn là:",
+              "type": "string"
+            },
+            {
+              "id": "324b0ca5-30e0-430e-844e-94854a87092d",
+              "name": "answer",
+              "value": "=Tôi là một người ít hiểu biết về Sarcasm và ít hoạt đọng trên mạng xã hội",
+              "type": "string"
+            },
+            {
+              "id": "da314fe8-6230-4f3c-987d-6bfe36eaeb08",
+              "name": "question_no",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "32040e52-42ad-42b0-9e29-b7ffea539d92",
+              "name": "questions",
+              "value": "={{ $json.questions }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1780,
+        -125
+      ],
+      "id": "bbd68335-64c2-4e6b-922a-f6f10f85e1dc",
+      "name": "Generate Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=session_{{ $('UUID').first().json.data }}",
+        "messageData": "={{ $json.toJsonString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3632,
+        -500
+      ],
+      "id": "c0ed107b-2089-46d5-9ccb-e2776d649178",
+      "name": "Update Session3",
+      "credentials": {
+        "redis": {
+          "id": "zoaVln6e4kM5qyt9",
+          "name": "Redis account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "UUID": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Interview": {
+      "main": [
+        [
+          {
+            "node": "UUID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Fields": {
+      "main": [
+        [
+          {
+            "node": "Update Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update data2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Form": {
+      "main": [
+        [
+          {
+            "node": "Update data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update data": {
+      "main": [
+        [
+          {
+            "node": "Update Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare next question": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update data2": {
+      "main": [
+        [
+          {
+            "node": "Update Session3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "Clear Memory",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session to List": {
+      "main": [
+        [
+          {
+            "node": "Messages To JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Messages To JSON": {
+      "main": [
+        [
+          {
+            "node": "Save to Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clear Memory": {
+      "main": [
+        [
+          {
+            "node": "Get Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Ask Question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "question_num1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "question_num1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask Question": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Session": {
+      "main": [
+        [
+          {
+            "node": "Session to List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Session": {
+      "main": [
+        [
+          {
+            "node": "Prepare next question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Session1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Session2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Update Session2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Add Questions List",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Questions List1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Questions List": {
+      "main": [
+        [
+          {
+            "node": "Generate Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Questions List1": {
+      "main": [
+        [
+          {
+            "node": "Generate Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Fields1": {
+      "main": [
+        [
+          {
+            "node": "Update Session1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Session3": {
+      "main": [
+        [
+          {
+            "node": "Clear Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "40245f35-c9e2-4c74-b9a8-d1dd4d653f9d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26538f13d6e98a825cfbc18a6742ca9d6bcd68fe4f25199a5790541ed536c890"
+  },
+  "id": "8T2toBNCc8AfcU1g",
+  "tags": []
+}
