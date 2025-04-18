@@ -1,4 +1,4 @@
-'''
+hypotheses = '''
 H1a: Social media is full of sarcastic statements.
 H1b: Social media is full of purely hateful statements.
 H1c: Social media is full of meaningless nonsense.

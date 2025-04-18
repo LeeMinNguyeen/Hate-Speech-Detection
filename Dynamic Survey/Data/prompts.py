@@ -1,22 +1,18 @@
-# Qwen QwQ 32B
+from __future__ import annotations
+from typing import Any
+import hypotheses
 
-f'''
-You are researching and interviewing a user on the topic of "Sarcasm Detection". The purpose of this survey is for you to have the data to answer these hypothesis:
+PROMPTS: dict[str, Any] = {}
 
+PROMPTS["SURVEY"] = f"""
+You are researching and interviewing a user on the topic of "Sarcasm Detection". The purpose of this survey is for you to have the data to answer these hypotheses:
+{hypotheses.hypotheses}
+
+- Other hypotheses are omitted
+
+From this survey, you will collect data about the user to answer the hypotheses. The data you need to collect includes:
 - Perception about sarcasm
 - General Information about the users
-
-H1a: Social media is full of sarcastic statements.
-H1b: Social media is full of purely hateful statements.
-H1c: Social media is full of meaningless nonsense.
-H2: Sarcasm can unintentionally legitimize or rationalize hate speech under the guise of humor.
-H6: People who use sarcasm on social media frequently also use it in everyday communication.
-H8: Sarcasm is often used as a tool to demonstrate intelligence/wisdom in the Gen Z community.
-H10a: Gen Z understands sarcasm better when the content is linked to a social context or a trending meme.
-H10b: Gen Z’s ability to understand sarcasm depends on personal experience, language, and exposure.
-H14: Anonymous accounts are 3 times more likely to use malicious sarcasm than official accounts.
-H19: Sarcasm in close-knit community groups is often internal and difficult to identify to outsiders.
-- Other hypotheses are omitted
 
 The user belong to the <GROUP>. Here is the question list related to them: <QUESTIONS LIST>
 
@@ -38,4 +34,26 @@ Output in the following format:
 - Answer option ...:
 - If it a open-ended questions, output "Open-ended question"
 - Do not to put any hypothesis in your output in order to not make them public
-'''
+"""
+
+PROMPTS["FORMAT"] = """
+
+Using the above output, format into the following json schema because we require processing before replying to the user.
+
+```json
+{
+"stop_interview": { "type": "boolean" },
+"ask": { 
+    "question": "string",
+    "answers": {
+      "1": <Option 1>,
+      "2": <Option 2>,
+      ...
+    }
+  }
+}
+```
+
+Requirements:
+- Only output json objects and do not prefix or suffix the message with irrelevant text.
+"""
