@@ -38,7 +38,7 @@ Output in the following format:
 
 PROMPTS["FORMAT"] = """
 
-Using the above output, format into the following json schema because we require processing before replying to the user.
+Using the above output, format into the following json schema because we require processing before replying to the user. If the output ask for stop interview confirmation, default to true.
 
 ```json
 {
