@@ -16,6 +16,14 @@
     <div class="chat-input-area">
         <input type="text" id="input-answer" placeholder="Nhập câu trả lời của bạn" />
         <button onclick="submitAnswer()">Gửi</button>
+        <script>
+            document.getElementById('input-answer').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); // Prevent default form submission
+                submitAnswer();
+            }
+            });
+        </script>
     </div>
 
     <script src="script.js"></script>

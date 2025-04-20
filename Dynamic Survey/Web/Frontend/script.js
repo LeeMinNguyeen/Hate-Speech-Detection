@@ -1,13 +1,27 @@
-const questions = [
-    { type: 'multiple', question: "Bạn có dễ dàng nhận ra mỉa mai trong một cuộc trò chuyện không?", options: ["Có", "Không", "Thỉnh thoảng"] },
-    { type: 'multiple', question: "Khi ai đó nói 'Ôi tuyệt vời, lại một thứ Hai nữa!', bạn sẽ hiểu thế nào?", options: ["Lạc quan", "Mỉa mai", "Đang vui"] },
-    { type: 'multiple', question: "Mỉa mai có thể gây hại trong một cuộc thảo luận nghiêm túc không?", options: ["Có", "Không", "Tuỳ vào tình huống"] },
-    { type: 'open', question: "Bạn nghĩ rằng mỉa mai có thể giúp giảm căng thẳng trong các tình huống khó xử không?", options: [] },
-    { type: 'open', question: "Khi bạn nghe ai đó nói 'Chắc chắn, tôi yêu việc làm thêm giờ!', bạn nghĩ họ đang nói thật hay đang mỉa mai?", options: [] }
-];
-
 let currentQuestionIndex = 0;
+let questions;
+let UUID;
 const chatContainer = document.getElementById('chat-content');
+
+async function get_uuid(url) {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        const result = await response.json();
+        
+        UUID = result.UUID
+        questions = result.questions
+
+    } catch (error) {
+        console.error('Error fetching UUID:', error);
+        throw error;
+    }
+}
 
 const observer = new MutationObserver(() => {
   scrollToBottom();
@@ -19,9 +33,8 @@ observer.observe(chatContainer, {
 });
 
 function selectAnswer(answer) {
-    const inputAnswer = document.getElementById("input-answer");
-    inputAnswer.value = answer;
-    return false;
+    document.getElementById("input-answer").value = answer;
+    submitAnswer();
 }
 
 function displayQuestion() {
@@ -39,7 +52,7 @@ function displayQuestion() {
             const a = document.createElement("a");
             a.href = "#";
             a.textContent = option;
-            a.onclick = () => selectAnswer(option);
+            li.onclick = () => selectAnswer(option);
             li.appendChild(a);
             optionsList.appendChild(li);
         });
@@ -103,7 +116,18 @@ function scrollToBottom() {
     }
 }
 
-window.onload = function() {
-    displayQuestion();
+function startSurvey() {
+    const chatContent = document.getElementById("chat-content");
+    const startMessage = document.createElement("div");
+    startMessage.classList.add("bot-message");
+    startMessage.textContent = "Chào bạn! Chúng tôi muốn biết ý kiến của bạn về mỉa mai. Bạn có sẵn sàng tham gia khảo sát không?";
+    chatContent.appendChild(startMessage);
+
     scrollToBottom();
+
+}
+
+window.onload = function() {
+    get_uuid("https://nguyien.app.n8n.cloud/webhook-test/90048586-d1ac-402c-b584-192b5105c3d5")
+    startSurvey();
 };
