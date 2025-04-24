@@ -1,4 +1,257 @@
 {
+    "session_03c9e681-a6aa-4c10-b5b4-10404f3dfab0": [
+        {
+            "timestamp": "2025-04-24T17:12:47.025000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:12:42.694000+07:00",
+            "type": "next_question",
+            "question": "Bạn nghĩ rằng sarcasm trong các nhóm cộng đồng gắn kết chặt chẽ (như hội nhóm bạn thân, cộng đồng nhỏ) có thường khó nhận biết đối với những người ngoài cuộc không?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:12:29.332000+07:00",
+            "type": "next_question",
+            "question": "Theo bạn, các tài khoản ẩn danh trên mạng xã hội có thường xuyên sử dụng sarcasm mang tính công kích hơn so với tài khoản cá nhân chính thức không?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:12:13.934000+07:00",
+            "type": "next_question",
+            "question": "Bạn có nghĩ rằng khả năng hiểu sarcasm của Gen Z phụ thuộc vào kinh nghiệm cá nhân, ngôn ngữ sử dụng, hoặc mức độ tiếp xúc với sarcasm không?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:11:57.323000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng Gen Z hiểu sarcasm tốt hơn khi nội dung liên quan đến bối cảnh xã hội phổ biến hoặc các meme đang trend không?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:11:41.156000+07:00",
+            "type": "next_question",
+            "question": "Theo bạn, những người thường xuyên sử dụng sarcasm trên mạng xã hội có thường xuyên sử dụng sarcasm trong giao tiếp hàng ngày không?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:11:28.260000+07:00",
+            "type": "next_question",
+            "question": "Theo bạn, việc sử dụng sarcasm trên mạng xã hội có bao giờ khiến người dùng vô tình biện minh hoặc giảm mức độ nghiêm trọng của hate speech bằng cách \"trộn lẫn\" nó trong humor không?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:11:11.747000+07:00",
+            "type": "next_question",
+            "question": "Theo bạn, trên mạng xã hội, loại nội dung nào xuất hiện nhiều nhất trong các bài đăng hoặc bình luận?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Lời nói châm biếm/sarcastic",
+                        "2": "Lời nói hateful/bạo lực",
+                        "3": "Nội dung vô nghĩa/không có thông điệp rõ ràng",
+                        "4": "Khác (vui lòng giải thích)"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:10:47.252000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z  ",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:10:34.887000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T17:10:34.331000+07:00",
+            "question": "Bạn đã xem qua bộ phim ‘’Vườn sao kê’’ lần nào chưa?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:10:25.463000+07:00",
+            "question": "“Không cần nói nữa Gobi, đủ lắm rồi” là câu đồng nghĩa với “im lặng”?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:10:12.709000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:10:05.495000+07:00",
+            "question": "Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:09:56.652000+07:00",
+            "question": "Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:09:48.601000+07:00",
+            "question": "Bé Ba + Baby Three = Tuesday có phải là phương trình hạnh phúc?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:09:33.909000+07:00",
+            "question": "Con gái hư có đáng bị gọi là 'Bé Ba' không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:09:21.266000+07:00",
+            "question": "Nên cho trẻ em xem Skibidi Toilet để phát triển tư duy sáng tạo?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:09:12.160000+07:00",
+            "question": "Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        }
+    ],
     "session_043bd82d-814b-46fd-b585-6d9bd84660f7": [
         {
             "timestamp": "2025-04-21T12:34:59.140000+07:00",
@@ -1398,6 +1651,178 @@
                 }
             },
             "score": "1"
+        }
+    ],
+    "session_0bc2541d-e5d2-40fe-aa01-d7f6e7d8ea2f": [
+        {
+            "timestamp": "2025-04-24T20:43:17.045000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:43:14.423000+07:00",
+            "type": "next_question",
+            "question": "Anh/chị có đồng ý rằng mạng xã hội hiện nay đầy những phát ngôn thù địch thuần túy?",
+            "answer": "Ngưng phỏng vấn",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:42:55.749000+07:00",
+            "type": "next_question",
+            "question": "Theo anh/chị, mạng xã hội hiện nay có nhiều phát ngôn đầy sarcasm?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:42:41.704000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z  ",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:42:30.248000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T20:42:29.329000+07:00",
+            "question": "Con gái hư có đáng bị gọi là 'Bé Ba' không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T20:42:15.208000+07:00",
+            "question": "“Không cần nói nữa Gobi, đủ lắm rồi” là câu đồng nghĩa với “im lặng”?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:59.884000+07:00",
+            "question": "Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:51.488000+07:00",
+            "question": "Bạn thấy cái này có ‘’đủ quao’’ chưa?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:40.263000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:32.185000+07:00",
+            "question": "Nếu được chọn 1 người để hẹn hò, bạn có muốn hẹn hò với Jack không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:17.084000+07:00",
+            "question": "Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T20:41:02.384000+07:00",
+            "question": "Nên cho trẻ em xem Skibidi Toilet để phát triển tư duy sáng tạo?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T20:40:54.049000+07:00",
+            "question": "Bé Ba + Baby Three = Tuesday có phải là phương trình hạnh phúc?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
         }
     ],
     "session_0bfd9db5-1b58-406d-b6f5-c0956086208f": [
@@ -4472,6 +4897,158 @@
                 }
             },
             "score": "1"
+        }
+    ],
+    "session_1cfb14d8-78ac-4ce2-8356-509b114b4df5": [
+        {
+            "timestamp": "2025-04-24T17:18:41.099000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:18:39.158000+07:00",
+            "type": "next_question",
+            "question": "Theo anh/chị, tại sao sarcasm lại được coi là một dấu hiệu thể hiện sự thông minh hoặc khéo léo trong cộng đồng Gen Z?",
+            "answer": "Ngưng phỏng vấn",
+            "output": {
+                "ask": {
+                    "answers": {}
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:18:15.112000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T17:17:52.496000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:52.014000+07:00",
+            "question": "Theo bạn, câu sau đây có thể hiện thái độ thù ghét/ mỉa mai trong một tình huống bất kỳ không? \"Giúp xứ người, đào lửa xứ mình\"",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:43.413000+07:00",
+            "question": "Bé Ba có phải là hình mẫu phụ nữ hiện đại không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:31.966000+07:00",
+            "question": "Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:24.542000+07:00",
+            "question": "“Thua Tôn Bằng” có thể được dùng để mỉa mai những người đàn ông có tính gia trưởng cực đoan không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:14.179000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:17:05.851000+07:00",
+            "question": "Bạn thấy cái này có ‘’đủ quao’’ chưa?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:16:54.599000+07:00",
+            "question": "Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:16:46.469000+07:00",
+            "question": "Bạn có thấy bạn quá ác không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T17:16:36.561000+07:00",
+            "question": "“Không cần nói nữa Gobi, đủ lắm rồi” là câu đồng nghĩa với “im lặng”?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
         }
     ],
     "session_1eac62c5-507e-41b3-884a-6d4c2dab13ea": [
@@ -16530,6 +17107,290 @@
             "score": "1"
         }
     ],
+    "session_6cde1db6-8e39-4ac3-946f-7da2744d4713": [
+        {
+            "timestamp": "2025-04-24T15:14:54.008000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:14:50.938000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng khả năng hiểu sarcasm của Gen Z phụ thuộc vào trải nghiệm cá nhân, ngôn ngữ và mức độ tiếp xúc với nội dung?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:13:48.707000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng sarcasm trong các nhóm cộng đồng thân thiện hoặc nhóm nhỏ gần gũi thường khó hiểu đối với người ngoài nhóm?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:13:37.762000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng các tài khoản ẩn danh sử dụng sarcasm mang tính phá hoại nhiều gấp 3 lần so với tài khoản chính thức?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:13:12.763000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng Gen Z dễ hiểu sarcasm hơn khi nội dung liên quan đến bối cảnh xã hội đang hot hoặc meme phổ biến?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:13:02.297000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng những người thường sử dụng sarcasm trên mạng xã hội cũng hay dùng nó trong giao tiếp đời thường?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:12:52.661000+07:00",
+            "type": "next_question",
+            "question": "Bạn có nghĩ rằng sarcasm đôi khi vô tình làm giảm mức độ nghiêm trọng của hate speech bằng cách che giấu nó dưới lớp hài hước?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:12:38.309000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng mạng xã hội đầy ắp những phát ngôn vô nghĩa hoặc không có ý nghĩa cụ thể không?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:12:29.303000+07:00",
+            "type": "next_question",
+            "question": "Theo nhận định của bạn, mạng xã hội có nhiều phát ngôn mang tính thù địch hoặc ghét không?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:12:21.546000+07:00",
+            "type": "next_question",
+            "question": "Theo nhận định của bạn, mạng xã hội có nhiều phát ngôn mang tính sарasm không?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:12:13.865000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T15:11:58.381000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:57.922000+07:00",
+            "question": "Con gái hư có đáng bị gọi là 'Bé Ba' không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:50.750000+07:00",
+            "question": "Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:42.953000+07:00",
+            "question": "Nếu được chọn 1 người để hẹn hò, bạn có muốn hẹn hò với Jack không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:35.745000+07:00",
+            "question": "“Thua Tôn Bằng” có thể được dùng để mỉa mai những người đàn ông có tính gia trưởng cực đoan không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:26.345000+07:00",
+            "question": "Bạn thấy cái này có ‘’đủ quao’’ chưa?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:17.810000+07:00",
+            "question": "Bạn đã xem qua bộ phim ‘’Vườn sao kê’’ lần nào chưa?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:11:10.662000+07:00",
+            "question": "Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:10:59.146000+07:00",
+            "question": "Theo bạn, câu sau đây có thể hiện thái độ thù ghét/ mỉa mai trong một tình huống bất kỳ không? \"Giúp xứ người, đào lửa xứ mình\"",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T15:10:41.240000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        }
+    ],
     "session_6e53930a-f455-4c03-a299-ff5253cdfa06": [
         {
             "timestamp": "2025-04-21T16:05:35.245000+07:00",
@@ -19502,6 +20363,290 @@
             "timestamp": "2025-04-22T12:33:51.812000+07:00",
             "question": "Bạn đã xem qua bộ phim ‘’Vườn sao kê’’ lần nào chưa?",
             "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        }
+    ],
+    "session_7be2b5d0-5f67-4d52-ae45-1f0bcd289e0b": [
+        {
+            "timestamp": "2025-04-24T19:44:25.377000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:44:19.043000+07:00",
+            "type": "next_question",
+            "question": "Bạn có nghĩ rằng sarcasm trong các nhóm cộng đồng khép kín (nhóm bạn bè thân thiết, cộng đồng riêng) thường mang tính nội bộ và khó nhận biết đối với người ngoài không?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:44:00.380000+07:00",
+            "type": "next_question",
+            "question": "Phát biểu: \"Tài khoản ẩn danh sử dụng sarcasm độc hại nhiều gấp 3 so với tài khoản chính thức\". Bạn đồng ý với phát biểu này đến mức nào?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:43:43.196000+07:00",
+            "type": "next_question",
+            "question": "Bạn có nghĩ rằng sarcasm có thể được sử dụng thường xuyên trong giao tiếp đời thường bởi những người dùng sarcasm nhiều trên mạng xã hội không?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:43:26.788000+07:00",
+            "type": "next_question",
+            "question": "Phát biểu: 'Mạng xã hội đầy những thứ vô nghĩa'. Bạn đồng ý mức độ nào?",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:43:06.536000+07:00",
+            "type": "next_question",
+            "question": "Bạn có nghĩ rằng sarcasm có thể vô tình biện minh hoặc hợp pháp hóa hate speech dưới vỏ bọc của sự hài hước?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:42:53.151000+07:00",
+            "type": "next_question",
+            "question": "Phát biểu: 'Gen Z hiểu sarcasm tốt hơn khi nội dung liên quan đến bối cảnh xã hội hoặc meme đang trend'. Bạn đồng ý với phát biểu này đến mức nào?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:42:45.682000+07:00",
+            "type": "next_question",
+            "question": "Phát biểu: 'Khả năng hiểu sarcasm của Gen Z phụ thuộc vào trải nghiệm cá nhân, ngôn ngữ, và tiếp xúc'. Bạn đồng ý với phát biểu này đến mức nào?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:42:35.531000+07:00",
+            "type": "next_question",
+            "question": "Phát biểu: 'Mạng xã hội đầy những tuyên bố thù địch thuần túy'. Bạn đồng ý với phát biểu này đến mức nào?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:41:57.038000+07:00",
+            "type": "next_question",
+            "question": "Theo nhận định của bạn, mạng xã hội có filled with nhiều phát ngôn sarcasm không?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:41:36.632000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z",
+            "answer": "1",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:39:17.695000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T19:39:17.157000+07:00",
+            "question": "Con gái hư có đáng bị gọi là 'Bé Ba' không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:39:01.882000+07:00",
+            "question": "“Thua Tôn Bằng” có thể được dùng để mỉa mai những người đàn ông có tính gia trưởng cực đoan không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:38:49.768000+07:00",
+            "question": "Theo bạn, câu sau đây có thể hiện thái độ thù ghét/ mỉa mai trong một tình huống bất kỳ không? \"Giúp xứ người, đào lửa xứ mình\"",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:38:23.324000+07:00",
+            "question": "Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:38:15.106000+07:00",
+            "question": "Bé Ba có phải là hình mẫu phụ nữ hiện đại không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T19:38:06.028000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:37:58.123000+07:00",
+            "question": "Khi nhìn lên bầu trời, bạn có thấy một vì tinh tú không?",
+            "Câu trả lời:": "1",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:37:44.052000+07:00",
+            "question": "Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:37:36.091000+07:00",
+            "question": "Nên cho trẻ em xem Skibidi Toilet để phát triển tư duy sáng tạo?",
+            "Câu trả lời:": "2",
             "type": "Standard_question",
             "output": {
                 "ask": {
@@ -24252,6 +25397,290 @@
             "timestamp": "2025-04-21T15:03:31.940000+07:00",
             "question": "Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?",
             "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        }
+    ],
+    "session_9972034a-39f2-4266-a748-22321aa7a30a": [
+        {
+            "timestamp": "2025-04-24T20:18:43.210000+07:00",
+            "type": "end_interview",
+            "question": "End",
+            "answer": "",
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:18:40.476000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng sarcasm trong các nhóm cộng đồng thân thiết (close-knit community groups) thường khó hiểu đối với người ngoài?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:18:31.373000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng các tài khoản ẩn danh trên mạng xã hội sử dụng sarcasm mang tính ác ý nhiều hơn so với tài khoản cá nhân/đơn vị chính thức?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:18:17.071000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng khả năng hiểu sarcasm của Gen Z phụ thuộc vào trải nghiệm cá nhân, ngôn ngữ và độ tiếp xúc?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:18:10.314000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng Gen Z hiểu sarcasm tốt hơn khi nội dung liên quan đến bối cảnh xã hội hoặc meme đang hot?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T20:17:46.071000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng những người thường sử dụng sarcasm trên mạng xã hội cũng hay dùng sarcasm trong giao tiếp hàng ngày?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:52:12.206000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng sarcasm đôi khi được dùng để làm giảm mức độ nghiêm trọng của ngôn ngữ hateful, khiến chúng trở nên dễ chấp nhận hơn?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:51:43.587000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng mạng xã hội chứa nhiều nội dung vô nghĩa, không mang thông điệp cụ thể?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:51:32.537000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng mạng xã hội chứa rất nhiều phát biểu hateful (troll)?",
+            "answer": "3",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:51:25.540000+07:00",
+            "type": "next_question",
+            "question": "Bạn có đồng ý rằng mạng xã hội chứa rất nhiều phát biểu sarcastic?",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Đồng ý",
+                        "2": "Trung lập",
+                        "3": "Không đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:51:14.472000+07:00",
+            "type": "next_question",
+            "question": "Sarcasm thường được sử dụng như một công cụ để thể hiện sự thông minh/trí tuệ/khéo léo trong cộng đồng Gen Z.",
+            "answer": "2",
+            "output": {
+                "ask": {
+                    "answers": {
+                        "1": "Không đồng ý",
+                        "2": "Trung lập",
+                        "3": "Đồng ý"
+                    }
+                }
+            },
+            "question_no": 1
+        },
+        {
+            "timestamp": "2025-04-24T19:50:27.310000+07:00",
+            "type": "start_interview",
+            "question": "Bạn là:",
+            "question_no": 1,
+            "answer": "Tôi là một người hiểu biết về Sarcasm và hoạt động nhiều trên mạng xã hội"
+        },
+        {
+            "timestamp": "2025-04-24T19:50:26.819000+07:00",
+            "question": "Liệu 'Thị trấn đường' nên trở thành hình mẫu phát triển đô thị bền vững?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T19:50:20.267000+07:00",
+            "question": "“Không cần nói nữa Gobi, đủ lắm rồi” là câu đồng nghĩa với “im lặng”?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T19:50:06.526000+07:00",
+            "question": "Con gái hư có đáng bị gọi là 'Bé Ba' không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:49:42.591000+07:00",
+            "question": "Bạn có nghĩ Sigma boy là hình mẫu lý tưởng cho thanh niên không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:49:31.796000+07:00",
+            "question": "Khi nhìn lên bầu trời, bạn có thấy một vì tinh tú không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:49:23.680000+07:00",
+            "question": "Bạn có đồng ý rằng diễn sâu quá là kỹ năng cần thiết trong công việc?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:49:11.972000+07:00",
+            "question": "Bé Ba có phải là hình mẫu phụ nữ hiện đại không?",
+            "Câu trả lời:": "3",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "0"
+        },
+        {
+            "timestamp": "2025-04-24T19:48:58.640000+07:00",
+            "question": "Nếu được chọn 1 người để hẹn hò, bạn có muốn hẹn hò với Jack không?",
+            "Câu trả lời:": "2",
+            "type": "Standard_question",
+            "output": {
+                "ask": {
+                    "answers": "1: Có 2: Không 3: Tôi không biết"
+                }
+            },
+            "score": "1"
+        },
+        {
+            "timestamp": "2025-04-24T19:48:45.825000+07:00",
+            "question": "Kẹo rau củ có tốt cho sức khỏe hơn kẹo thường không?",
+            "Câu trả lời:": "1: Có",
             "type": "Standard_question",
             "output": {
                 "ask": {
